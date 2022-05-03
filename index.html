@@ -16,6 +16,23 @@
     <meta property="og:description" content="From View to Composable includes code snippets and on-to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose." />
     <meta property="og:image" content="ogimage.png" />
 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-analytics.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyB-DohiZ93JDIsBaASAMDbwmQGaFfniu_0",
+            authDomain: "viewtocomposable.firebaseapp.com",
+            projectId: "viewtocomposable",
+            storageBucket: "viewtocomposable.appspot.com",
+            messagingSenderId: "1054683436797",
+            appId: "1:1054683436797:web:9dd5b578af58cea968d094",
+            measurementId: "G-D46ZWET8H0"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+
     <style>
         :root {
             --primary: #0975AC;
@@ -27,7 +44,6 @@
         }
         
         * {
-            color: #0a4968;
             margin: 0px;
             padding: 0px;
             font-family: "Urbanist", sans-serif;
@@ -47,22 +63,30 @@
             background-color: #4ca1cc;
         }
         h1 {
+            color: #0a4968;
             font-size: 54px;
         }
         h2 {
+            color: #0a4968;
             font-size: 38px;
         }
         p {
+            color: #0a4968;
             line-height:1.5;
             font-size: 22px;
             font-weight: 500;
         }
+        a {
+            color: #0a4968;
+        }
         ul {
+            color: #0a4968;
             list-style-type: none;
             line-height: 2.5;
             font-size: 22px;
         }
         ol {
+            color: #0a4968;
             list-style-type: none;
             line-height: 2.5;
             font-size: 22px;
