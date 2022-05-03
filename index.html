@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/atom-one-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+    
+    <title>From View to Composable: Learn Jetpack Compose from a Android View mindset</title>
+    <meta property="og:title" content="Do not learn Jetpack Compose from scratch. Save $50 by pre-ordering now" />
+    <meta property="og:description" content="From View to Composable includes code snippets and on-to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose." />
+    <meta property="og:image" content="ogimage.png" />
+
+    <style>
+        :root {
+            --primary: #0975AC;
+            --brand: #E91E63;
+        }
+
+        body {
+            background-color: #fafafa;
+        }
+        
+        * {
+            color: #0a4968;
+            margin: 0px;
+            padding: 0px;
+            font-family: "Urbanist", sans-serif;
+        }
+        
+        button {
+            cursor: pointer;
+            border-radius: 20px;
+            background-color: var(--primary);
+            color:white;
+            border: 1px solid transparent;
+            padding: 14px 28px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        button:hover {
+            background-color: #4ca1cc;
+        }
+        h1 {
+            font-size: 54px;
+        }
+        h2 {
+            font-size: 38px;
+        }
+        p {
+            line-height:1.5;
+            font-size: 22px;
+            font-weight: 500;
+        }
+        ul {
+            list-style-type: none;
+            line-height: 2.5;
+            font-size: 22px;
+        }
+        ol {
+            list-style-type: none;
+            line-height: 2.5;
+            font-size: 22px;
+        }
+        .section {
+            text-align: start;
+            margin: auto;
+            max-width: 700px;
+        }
+        .contents ul {
+            list-style-type: circle;
+        }
+        .nested-list {
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <script src='https://cdn.paritydeals.com/banner.js'></script>
+    <div style="padding: 60px;"></div>
+    <div style="text-align: center;">
+        <a class="gumroad-button" href="https://alexstyl.gumroad.com/l/viewtocomposable"><img src="book_cover.png" style="
+        width: 200px; height: 200px;
+        background-color: var(--brand);
+        cursor: pointer;
+        display: inline-block; border-radius: 100%;" 
+    class="https://alexstyl.gumroad.com/l/viewtocomposable">
+    </a>    
+
+    <div style="padding: 60px;"></div>
+    <h1 style="font-weight: 600; padding-left: 100px;padding-right: 100px;">Save hundreds of hours in learning Jetpack Compose</h1>
+    
+    <div style="padding: 60px;"></div>
+    <button onclick="window.location.href='https://alexstyl.gumroad.com/l/viewtocomposable'">PRE–ORDER – $ 49.99</button>
+    <div style="padding-right: 20px; display: inline;"></div>
+    <s style="font-size: 28px;
+        font-weight: 600;
+        text-decoration-color: red; text-decoration-thickness: 2px;">$99.99</s>
+    <div style="padding: 20px"></div>
+    <div style="padding: 40px;"></div>
+    
+    <div>
+    <a href="https://twitter.com/alexstyl"
+    class="section"
+    style="display: flex; align-items: center; justify-content: center;
+    text-decoration:none;font-size: 22px;font-weight: 600;">
+    <img src="avatar_small.png" style="
+        border: 2px solid #ffff;
+        width: 50px; height: 50px;
+        cursor: pointer;
+        display: inline-block; border-radius: 50%;">
+    <div style="padding: 10px;"></div>
+    by @alexstyl
+    </a>
+    </div>
+
+<div style="padding: 30px;"></div>
+    <p class="section" style="text-align: center;padding-left: 80px; padding-right: 80px;">
+        Don't learn Jetpack Compose from scratch. <i>From View to Composable</i> includes code snippets and on-to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose.
+    </p>
+    <div style="padding: 80px;"></div>
+    <ul class="section" style="text-align: start;">
+    <li>✅ Start using Jetpack Compose straight away</li>
+    <li>✅ Includes code snippets for every common case</li>
+    <li>✅ No fluff, on-to-the-point explanations of Jetpack Compose</li>
+    <li>✅ Written <a href="https://twitter.com/alexstyl">by a dev</a> for devs</li>
+</ul>
+<div style="padding: 80px;"></div>
+    <h2 class = "section">Save hundreads of hours from</h2>
+    <ul class="section" style="text-align: start;">
+    <div style="padding: 20px;"></div>
+    <li>❌ looking up outdated StackOverflow answers & Googling</li>
+    <li>❌ watching verbose videos on YouTube</li>
+    <li>❌ reading complicated official documentation</li>
+    <li>❌ going through blog posts to find the one article you need</li>
+    </ul>
+</div>   
+<div style="padding: 80px;"></div> 
+<h2 class="section">Table of Contents</h2>
+<div style="padding: 20px;"></div> 
+<ol class="section contents">
+    <li>Preface</li>
+    <li>Jump Start to Compose</li>
+    <li>Views</li>
+        <ol class="nested-list">
+            <li>TextView</li>
+            <li>EditText</li>
+            <li>ImageView</li>
+            <li>Button</li>
+            <li>Toolbar</li>
+            <li>Dialog</li>
+            <li>Snackbar</li>
+        </ol>
+    <li>Layouts</li>
+        <ol class="nested-list">
+            <li>LinearLayout</li>
+            <li>FrameLayout</li>
+            <li>RecyclerView</li>
+            <li>Grid</li>
+            <li>ViewPager</li>
+            <li>ConstraintLayout</li>
+            <li>BottomSheet</li>
+        </ol>
+    <li>Interop with Views</li>
+    <li>Theming</li>
+    <li>Insets</li>
+    <li>Keyboard + IME</li>
+    <li>Permissions</li>
+    <li>Start activity for results</li>
+    <li>Compose specifics</li>
+    <li>State</li>
+    <li>Navigation</li>
+    <li>ViewModels</li>
+    <li>Structuring a Compose app</li>
+</ol>
+
+</div>
+<div style="padding: 60px;"></div>
+<div style="text-align: center;">
+    <button onclick="window.location.href='https://alexstyl.gumroad.com/l/viewtocomposable'">PRE–ORDER – $ 49.99</button>
+    <div style="padding-right: 20px; display: inline;"></div>
+    <s style="font-size: 28px;
+        font-weight: 600;
+        text-decoration-color: red; text-decoration-thickness: 2px;">$99.99</s>
+    <div style="padding: 20px"></div>
+    <div style="padding: 40px;"></div>
+    </div>
+<!-- <h2>Sneak Peak into the 'Text' Chapter</h2> -->
+<!-- <div id="content"></div> -->
+<!-- <script>
+    function loadSample(){
+        const md = new Remarkable();
+        let xhr = new XMLHttpRequest();
+        console.log("Doing it")
+        xhr.open("GET", "sample.md"); 
+        xhr.onload = function()  {
+            let text = xhr.responseText;
+            document.getElementById("content").innerHTML = md.render(text)
+            hljs.highlightAll()
+        }
+        xhr.send();
+    }
+    loadSample();
+</script> -->
+</body>
+
+</html>
