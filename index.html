@@ -92,6 +92,7 @@
             font-size: 22px;
         }
         .section {
+            padding-left: 80px; padding-right: 80px;
             text-align: start;
             margin: auto;
             max-width: 700px;
@@ -101,6 +102,15 @@
         }
         .nested-list {
             margin-left: 40px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            h2 {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
@@ -117,7 +127,7 @@
     </a>    
 
     <div style="padding: 60px;"></div>
-    <h1 style="font-weight: 600; padding-left: 100px;padding-right: 100px;">Save hundreds of hours in learning Jetpack Compose</h1>
+    <h1 style="font-weight: 600;">Save hundreds of hours in learning Jetpack Compose</h1>
     
     <div style="padding: 60px;"></div>
     <button onclick="window.location.href='https://alexstyl.gumroad.com/l/viewtocomposable'">PRE–ORDER – $ 49.99</button>
@@ -144,8 +154,8 @@
     </div>
 
 <div style="padding: 30px;"></div>
-    <p class="section" style="text-align: center;padding-left: 80px; padding-right: 80px;">
-        Don't learn Jetpack Compose from scratch. <i>From View to Composable</i> includes code snippets and on-to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose.
+    <p class="section" style="text-align: center;">
+        Do not learn Jetpack Compose from scratch. <i>From View to Composable</i> includes code snippets and on-to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose.
     </p>
     <div style="padding: 80px;"></div>
     <ul class="section" style="text-align: start;">
@@ -155,13 +165,13 @@
     <li>✅ Written <a href="https://twitter.com/alexstyl">by a dev</a> for devs</li>
 </ul>
 <div style="padding: 80px;"></div>
-    <h2 class = "section">Save hundreads of hours from</h2>
-    <ul class="section" style="text-align: start;">
+    <h2 class="section">Save hundreads of hours from</h2>
     <div style="padding: 20px;"></div>
-    <li>❌ looking up outdated StackOverflow answers & Googling</li>
-    <li>❌ watching verbose videos on YouTube</li>
-    <li>❌ reading complicated official documentation</li>
-    <li>❌ going through blog posts to find the one article you need</li>
+    <ul class="section" style="text-align: start;">
+        <li>❌ looking up outdated StackOverflow answers & Googling</li>
+        <li>❌ watching verbose videos on YouTube</li>
+        <li>❌ reading complicated official documentation</li>
+        <li>❌ going through blog posts to find the one article you need</li>
     </ul>
 </div>   
 <div style="padding: 80px;"></div> 
