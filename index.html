@@ -46,6 +46,11 @@
     </script>
 
     <style>
+        @font-face {
+            font-family: "JetbrainsMono";
+            src: url(JetBrainsMono.ttf) format("truetype");
+        }
+
         :root {
             --primary: #0975AC;
             --brand: #E91E63;
@@ -54,7 +59,11 @@
         body {
             background-color: #fafafa;
         }
-        
+
+        code {
+            font-family: "JetbrainsMono";    
+        }
+
         * {
             margin: 0px;
             padding: 0px;
@@ -74,6 +83,22 @@
         button:hover {
             background-color: #4ca1cc;
         }
+        #content p {
+            margin-top: 40px;
+        }
+
+        #content pre {
+            margin-top: 20px;
+        }
+
+        .hljs {
+            background-color: #2B2B2B;
+        }
+
+        #content h2 {
+            margin-top: 60px;
+        }
+        
         h1 {
             color: #0a4968;
             font-size: 54px;
@@ -261,7 +286,28 @@
     </ol>
 </ol>
 </div>
+
 <div style="padding: 60px;"></div>
+
+<h3 class = "section">Sneak Peak of the <code>Text</code> Chapter</h2> 
+<div class="section" id="content"></div>
+ <script>
+    function loadSample(){
+        const md = new Remarkable();
+        let xhr = new XMLHttpRequest();
+        console.log("Doing it")
+        xhr.open("GET", "sample.md"); 
+        xhr.onload = function()  {
+            let text = xhr.responseText;
+            document.getElementById("content").innerHTML = md.render(text)
+            hljs.highlightAll()
+        }
+        xhr.send();
+    }
+    loadSample();
+</script>
+<div style="padding: 30px;"></div>
+
 <div class="section">
     <h2>Frequently Asked Questions</h2>
     <div style="padding: 20px"></div>
@@ -302,23 +348,5 @@
     <div style="padding: 40px;"></div>
 </div>
 
-
-<!-- <h2>Sneak Peak into the 'Text' Chapter</h2> -->
-<!-- <div id="content"></div> -->
-<!-- <script>
-    function loadSample(){
-        const md = new Remarkable();
-        let xhr = new XMLHttpRequest();
-        console.log("Doing it")
-        xhr.open("GET", "sample.md"); 
-        xhr.onload = function()  {
-            let text = xhr.responseText;
-            document.getElementById("content").innerHTML = md.render(text)
-            hljs.highlightAll()
-        }
-        xhr.send();
-    }
-    loadSample();
-</script> -->
 </body>
 </html>
