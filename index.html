@@ -296,7 +296,6 @@
     function loadSample(){
         const md = new Remarkable();
         let xhr = new XMLHttpRequest();
-        console.log("Doing it")
         xhr.open("GET", "sample.md"); 
         xhr.onload = function()  {
             let text = xhr.responseText;
