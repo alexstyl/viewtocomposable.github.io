@@ -54,6 +54,11 @@
     </script>
 
     <style>
+
+        @font-face {
+            font-family: Hind;
+            src: url('Hind-Regular.ttf');
+        }
         html {
             scroll-behavior: smoolith;
         }
@@ -83,22 +88,19 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
-        body {
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
         body,
         h1,
         h2,
         h3,
         p,
         li {
-            font-family: 'Open Sans';
+            font-family: 'Hind';
             color: var(--text-color);
         }
 
         .container {
+            padding-left: 20px;
+            padding-right: 20px;
             margin: auto;
             width: 100%;
             text-align: start;
@@ -207,6 +209,9 @@
                 width: 700px;
                 margin: auto;
             }
+        }
+        .parity-banner {
+            position: absolute;
         }
     </style>
 </head>
