@@ -55,7 +55,7 @@
 
     <style>
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smoolith;
         }
 
         @font-face {
@@ -70,7 +70,22 @@
             --text-color: #000000;
         }
 
+        .cover_container {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .author_img {
+            width: 200px;
+            border-radius: 500px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
         .cover {
+            width: 200px;
+            text-align: center;
+            margin: auto;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
@@ -92,14 +107,14 @@
         .container {
             margin: auto;
             width: 100%;
-            text-align: center;
+            text-align: start;
         }
 
         .ctas {
             flex-direction: column;
             display: flex;
             margin: auto;
-            width: 280px;
+            width: 100%;
         }
 
         p {
@@ -115,6 +130,7 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
+            font-weight: 600;
             border-width: 1px;
             border-radius: 900px;
         }
@@ -171,10 +187,9 @@
             background-color: rgb(244, 244, 244);
         }
 
-        .chapter_contents ul {
-            list-style-type: none;
+        ul {
             text-align: start;
-            padding-left: 80px;
+
             padding-top: 0px;
             padding-bottom: 20px;
             margin-top: 0px;
@@ -182,8 +197,14 @@
         }
 
         .chapter_contents ul li {
+            list-style-type: none;
             padding-top: 10px;
             padding-bottom: 10px;
+            padding-left: 40px;
+        }
+
+        .margintop {
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -193,19 +214,21 @@
 
     <div>
         <div class="container">
-            <img class="cover" src="images/cover.png" alt="Book Cover" width="200">
-
+            <div class="cover_container">
+                <img class="cover" src="images/cover.png" alt="Book Cover">
+            </div>
             <h2>Description</h2>
-            <p>Jetpack Compose is the future of Android UI. But learning a new framework from scratch can be tedious and
-                slow you down. From View to Composable includes code examples and to-the-point explanation on how to do
-                everything you already know from Android Views using Jetpack Compose.</p>
+            <p>Jetpack Compose is the future of Android UI. Wouldn't it be great if you did not have to spend hundreds
+                of hours figuring out how to do things you already know the old-fashioned way?
+                This book includes code examples and to-the-point explanations so that you do not have to.
+            </p>
 
             <div class="ctas">
                 <button onclick="document.getElementById('buy').scrollIntoView();">Buy on Gumroad</button>
                 <button>Read Preview</button>
             </div>
         </div>
-        <div class="container">
+        <div class="container margintop">
             <h2>Table of Contents</h2>
             <div class="toc">
                 <div class="chapter">Understanding Compose code</div>
@@ -369,7 +392,7 @@
                         <li>How to navigate to a Bottom Sheet using the AndroidX Navigation library</li>
                     </ul>
                 </div>
-                <div class="chapter expandable">Using Views from Compose</div>
+                <!-- <div class="chapter expandable">Using Views from Compose</div>
                 <div class="chapter_contents">
                     <ul>
                         <li>How to be notified when an Android View becomes visible (onAttach())</li>
@@ -442,34 +465,81 @@
                         <li>Screen level composables</li>
                         <li>Content composables</li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="chapter">See you on the Internet</div>
                 <div class="chapter">About the Author</div>
                 <div class="chapter">Appendix</div>
             </div>
-            <div class="container" id="buy">
-                <script src="https://gumroad.com/js/gumroad-embed.js"></script>
-                <div class="gumroad-product-embed"><a
-                        href="https://alexstyl.gumroad.com/l/viewtocomposable">Loading...</a>
+
+            <div class="container margintop">
+                <h2>Stop wasting hundreds of hours from</h2>
+                <ul>
+                    <li>looking up outdated StackOverflow answers & Googling</li>
+                    <li>watching verbose videos on YouTube</li>
+                    <li>reading complicated official documentation</li>
+                    <li>going through blog posts to find the one article you need</li>
+                </ul>
+            </div>
+
+            <div class="container margintop">
+                <h2>What's included</h2>
+                <ul>
+                    <li>140 pages that comes in PDF, ePUB (Kindle) and HTML formats</li>
+                    <li>100+ code samples and explanations</li>
+                    <li>Access to a private Jetpack Compose community</li>
+                    <li>Free updates for any future deprecated APIs</li>
+                </ul>
+            </div>
+
+            <div class="container margintop">
+                <h2>The cost</h2>
+                <p>The final price of the book is $100. Considering the amount of hours it will save you and your team
+                    in figuring out things from scratch, </p>
+                <p>If you are not happy with the quality of the contents of the book, I will happily refund you the full amount until 14 days after the purchase, no questions asked.</p>
+                <p>Power parity pricing is enabled. Find the coupon in the top of this page and use it during checkout if you need it.</p>
+            </div>
+
+            <div class="container">
+                <h2>About</h2>
+                <div class="cover_container">
+                    <img class="author_img" src="images/author.png" alt="Author">
                 </div>
+                <p>Heya, I'm Alex Styl 👋</p>
+                <p>This eBook contains everything I wish existed when I first started using Jetpack Compose.</p>
+                <p>I could see the benefits of Compose straight away. The problems came
+                    when I could not build the layouts I wanted as the resources were limited and finding the answers
+                    were time consuming.</p>
+                <p>I have seen the Android platform evolve over the past 10 years and Jetpack Compose is such a welcome
+                    change in how we build apps. It is however a radical change. I hope this book will save you hundreds
+                    of hours and make your Compose experience more delightful!</p>
+                <p>– Alex Styl <a href="https://twitter.com/alexstyl">(@alexstyl)</a></p>
+                <p>PS: you can find more Jetpack Compose content, tips and how-tos on my <a
+                        href="https://youtube.com/alexstyl">Youtube</a> and <a
+                        href="https://twitter.com/alexstyl">Twitter</a> for free.</p>
             </div>
         </div>
-        <script>
-            var coll = document.getElementsByClassName("expandable");
-            var i;
+        <div class="container" id="buy">
+            <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+            <div class="gumroad-product-embed"><a href="https://alexstyl.gumroad.com/l/viewtocomposable">Loading...</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var coll = document.getElementsByClassName("expandable");
+        var i;
 
-            for (i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    var content = this.nextElementSibling;
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                    } else {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                    }
-                });
-            } 
-        </script>
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        } 
+    </script>
 </body>
 
 </html>
