@@ -54,7 +54,6 @@
     </script>
 
     <style>
-
         @font-face {
             font-family: Hind;
             src: url('Hind-Regular.ttf');
@@ -126,13 +125,36 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
+            font-family: 'Hind';
+            font-size: 1rem;
             font-weight: 600;
             border-width: 1px;
             border-radius: 900px;
         }
 
-        .ctas button {
+        .ctas a {
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 900px;
+            height: 48px;
+            vertical-align: top;
+            margin-top: 10px;
+            padding: 0px;
+            line-height: 44px;
+            font-size: 1rem;
+            font-family: 'Hind';
+            background-color: #E9E8EC;
+            color: var(--text-color);
+        }
+
+        .ctas a:hover {
+            background-color: #cfcfcf;
+        }
+
+        .ctas r {
             margin-top: 10px;
         }
 
@@ -211,6 +233,7 @@
                 margin: auto;
             }
         }
+
         .parity-banner {
             position: absolute;
         }
@@ -232,8 +255,8 @@
             </p>
 
             <div class="ctas">
-                <button onclick="document.getElementById('buy').scrollIntoView();">Buy on Gumroad</button>
-                <button type="submit" onclick="window.open('preview.pdf')">Read Sample</button>
+                <a href="#buy">Buy on Gumroad</a>
+                <a href="/preview.pdf">Read Sample</a>
             </div>
         </div>
         <div class="container margintop">
