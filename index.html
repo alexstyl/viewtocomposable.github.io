@@ -1,6 +1,7 @@
 <!-- This website is open source. Star it at https://github.com/alexstyl/viewtocomposable.github.io-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,22 +12,25 @@
     <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/atom-one-dark.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
-    
+
     <title>From View to Composable: Learn Jetpack Compose from a Android View mindset</title>
-    <meta name="description" content="From View to Composable includes code examples and to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose.">
+    <meta name="description"
+        content="From View to Composable includes code examples and to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose.">
     <meta property="og:title" content="From View to Composable – Do not learn Jetpack Compose from scratch" />
-    <meta property="og:description" content="From View to Composable includes code examples and to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose." />
+    <meta property="og:description"
+        content="From View to Composable includes code examples and to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose." />
     <meta property="og:image" content="https://viewtocomposable.com/ogimage.png" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="675" />
+    <meta property="og:image:height" content="675" />
 
     <link rel="canonical" href="https://viewtocomposable.com" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@alexstyl" />
     <meta name="twitter:title" content="From View to Composable – Do not learn Jetpack Compose from scratch" />
-    <meta name="twitter:description" content="From View to Composable includes code examples and to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose." />
+    <meta name="twitter:description"
+        content="From View to Composable includes code examples and to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose." />
     <meta name="twitter:image" content="https://viewtocomposable.com/ogimage.png" />
     <meta property="og:type" content="book" />
     <meta property="book:author" content="Alex Styl" />
@@ -44,12 +48,16 @@
             appId: "1:1054683436797:web:9dd5b578af58cea968d094",
             measurementId: "G-D46ZWET8H0"
         };
-        
+
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
     </script>
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         @font-face {
             font-family: "JetbrainsMono";
             src: url(JetBrainsMono.ttf) format("truetype");
@@ -58,335 +66,426 @@
         :root {
             --primary: #0975AC;
             --brand: #E91E63;
+            --border: #D9D9D9;
+            --text-color: #000000;
+        }
+
+        .cover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
         body {
-            background-color: #fafafa;
-        }
-
-        code {
-            font-family: "JetbrainsMono";    
-        }
-
-        * {
-            margin: 0px;
-            padding: 0px;
-            font-family: "Urbanist", sans-serif;
-        }
-        
-        button {
-            cursor: pointer;
-            border-radius: 20px;
-            background-color: var(--primary);
-            color:white;
-            border: 1px solid transparent;
-            padding: 14px 28px;
-            font-size: 28px;
-            font-weight: 600;
-        }
-        button:hover {
-            background-color: #4ca1cc;
-        }
-        #content p {
-            margin-top: 40px;
-        }
-
-        #content pre {
-            margin-top: 20px;
-        }
-
-        .hljs {
-            background-color: #2B2B2B;
-        }
-
-        #content h2 {
-            margin-top: 60px;
-        }
-        
-        h1 {
-            color: #0a4968;
-            font-size: 54px;
-        }
-        h2 {
-            color: #0a4968;
-            font-size: 38px;
-        }
-        h3 {
-            color: #0a4968;
-            font-size: 22px;
-        }
-        p {
-            color: #0a4968;
-            line-height:1.5;
-            font-size: 22px;
-            font-weight: 500;
-        }
-        a {
-            color: #0a4968;
-        }
-        ul {
-            color: #0a4968;
-            list-style-type: none;
-            line-height: 2.5;
-            font-size: 22px;
-        }
-        ol {
-            color: #0a4968;
-            list-style-type: none;
-            line-height: 2.5;
-            font-size: 22px;
-        }
-        .section {
-            padding-left: 80px; padding-right: 80px;
-            text-align: start;
-            margin: auto;
-            max-width: 700px;
-        }
-        .contents ul {
-            list-style-type: circle;
-        }
-        .nested-list {
-            margin-left: 40px;
-        }
-
-        .grid {
-            background-color: var(--primary);
-            padding-top: 20px;
-            padding-bottom: 10px;
             padding-left: 20px;
             padding-right: 20px;
-            columns: 3 200px;
-            column-gap: 1rem;
         }
 
-        .twitter-tweet {
+        body,
+        h1,
+        h2,
+        h3,
+        p,
+        li {
+            font-family: 'Open Sans';
+            color: var(--text-color);
+        }
+
+        .container {
+            margin: auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .ctas {
+            flex-direction: column;
+            display: flex;
+            margin: auto;
+            width: 280px;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            color: var(--text-color);
+            height: 48px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-width: 1px;
+            border-radius: 900px;
+        }
+
+        .ctas button {
+            margin-top: 10px;
+        }
+
+        hr {
             margin: 0px;
+            color: var(--border);
+            opacity: 20%;
         }
-        @media only screen and (max-width: 1200px) {
-            .grid {
-                columns: 2 200px;
-            }
+
+        .toc {
+            font-size: 0.875rem;
+            width: 100%;
+            text-align: center;
+            margin: auto;
         }
-        @media only screen and (max-width: 768px) {
-            .grid {
-                columns: 1 200px;
-            }
-            h1 {
-                font-size: 32px;
-            }
-            h2 {
-                font-size: 28px;
-            }
+
+        .toc{
+             border-width: 1px;
+            border-style: solid;
+            border-color: var(--border);
+            border-radius: 8px;
         }
+        .chapter {
+            text-align: start;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 40px;
+        }
+
+        .expandable {
+            cursor: pointer;
+        }
+        .chapter_contents ul {
+            list-style-type: none;
+            text-align: start;
+            padding-left: 80px;
+            padding-top: 0px;
+            padding-bottom: 20px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        .chapter_contents ul li {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
     </style>
+    <script>
+
+    </script>
 </head>
+
 <body>
     <script src='https://cdn.paritydeals.com/banner.js'></script>
-    <div style="padding: 30px;"></div>
-    <div style="text-align: center;">
-        <a href="https://alexstyl.gumroad.com/l/viewtocomposable"><img src="book_cover.png" style="
-        width: 200px; height: 200px;
-        background-color: var(--brand);
-        cursor: pointer;
-        display: inline-block; border-radius: 100%;" 
-        class="https://alexstyl.gumroad.com/l/viewtocomposable">
-    </a>    
 
-    <div style="padding: 60px;"></div>
-    <h1 style="font-weight: 600;">Don't spend hundreds of hours in learning Jetpack Compose</h1>
-    
-    <div style="padding: 60px;"></div>
-    <button onclick="window.location.href='https://alexstyl.gumroad.com/l/viewtocomposable'">PRE–ORDER – $ 79.99</button>
-    <div style="padding-right: 20px; display: inline;"></div>
-    <s style="font-size: 28px;
-        font-weight: 600;
-        text-decoration-color: red; text-decoration-thickness: 2px;">$99.99</s>
-    <div style="padding: 40px;"></div>
     <div>
-    <a href="https://twitter.com/alexstyl"
-    class="section"
-    style="display: flex; align-items: center; justify-content: center;
-    text-decoration:none;font-size: 22px;font-weight: 600;">
-    <img src="avatar_small.png" style="
-        border: 2px solid #ffff;
-        width: 50px; height: 50px;
-        cursor: pointer;
-        display: inline-block; border-radius: 50%;">
-    <div style="padding: 10px;"></div>
-    by @alexstyl
-    </a>
+        <div class="container">
+            <img class="cover" src="images/cover.png" alt="Book Cover" width="200">
+
+            <h2>Description</h2>
+            <p>Jetpack Compose is the future of Android UI. But learning a new framework from scratch can be tedious and
+                slow you down. From View to Composable includes code examples and to-the-point explanation on how to do
+                everything you already know from Android Views using Jetpack Compose.</p>
+
+            <div class="ctas">
+                <button onclick="document.getElementById('buy').scrollIntoView();">Buy on Gumroad</button>
+                <button>Read Preview</button>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <h2>Table of Contents</h2>
+            <div class="toc"><div class="chapter expandable">Understanding Compose code</div>
+            <hr>
+            <div class="chapter expandable">TextView to Text</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to customize your text (text color, size, max lines, etc)</li>
+            <li>How to reuse your text styles</li>
+            <li>How to use custom Fonts</li>
+            <li>How to create custom Fonts</li>
+            <li>How to use strings from xml resources</li>
+            <li>How to use string plurals from xml resources</li>
+            <li>How to make Text clickable</li>
+            <li>How to make part of Text clickable (UrlSpans)</li>
+            <li>How to align my Text according to its baseline</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">EditText to TextField</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to listen to text changes (TextChangedListener)</li>
+            <li>How to change the text style of an TextField (text colors, fonts, etc)</li>
+            <li>How to specify the input type (phone numbers, e-mails, text, digits)</li>
+            <li>How to specify and handle IME action (change ENTER to Done, Search, Next, etc)</li>
+            <li>How to listen to specific key press events</li>
+            <li>How to request focus</li>
+            <li>How to control keyboard focus</li>
+            <li>How to show the soft-keyboard</li>
+            <li>How to hide the soft-keyboard</li>
+            <li>How to customize the style of your TextField (border, colors, etc)</li>
+            <li>How to change colors of your TextField</li>
+            <li>How to display an error to your TextField</li>
+            <li>Am I forced to use the Material Guidelines looks for my InputText</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Displaying Images & Photos</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to load an image from resources</li>
+            <li>How to crop an Image circular</li>
+            <li>How to set the aspect ratio of an image</li>
+            <li>How to tint a photo</li>
+            <li>How to load an image from a URL</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Iconography</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to load an icon from resources</li>
+            <li>Using built-in icons</li>
+            <li>How to make Icons clickable</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Buttons in Compose</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to create a Button</li>
+            <li>How to change the colors of a Button</li>
+            <li>How to change the text styling of a Button</li>
+            <li>How to make a Button with rounded corners</li>
+            <li>How do I do textAllCaps</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Toolbar to TopAppBar</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to do I create a TopAppBar</li>
+            <li>How do I create a centered title TopAppBar</li>
+            <li>How to change the colors of the TopAppBar</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Dialogs and AlertDialogs</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How do I create an Alert Dialog</li>
+            <li>How to create an Alert Dialog with vertical buttons</li>
+            <li>How to create a custom layout dialog</li>
+            <li>How to prevent dismiss when tapped outside/on back pressed</li>
+            <li>How to change the colors of the dialog</li>
+            <li>How to create a rounded corner dialog</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Snackbars</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to create a Snackbar</li>
+            <li>How to add an action</li>
+            <li>How to keep the Snackbar permanently on the screen</li>
+            <li>How to style your Snackbar</li>
+            <li>How to create a custom Snackbar</li>
+            <li>How to enable swipe to dismiss functionality</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">LinearLayout to Column & Row</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to use LinearLayout gravity</li>
+            <li>How to add spacing between items</li>
+            <li>How to apply weight</li>
+            <li>How to add dividers between items</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">FrameLayout to Box</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to set the gravity of each item</li>
+            <li>How to set gravity of all items</li>
+            <li>How to use Box as a decoration element</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">RecyclerView to LazyLists</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to add header and footers</li>
+            <li>How to add sticky headers</li>
+            <li>How to animate adding/removing items (DiffUtils)</li>
+            <li>How to animate position changes</li>
+            <li>How to observe scrolling (OnScrollChangedListener)</li>
+            <li>How to scroll to item programmatically</li>
+            <li>How to swipe to dismiss</li>
+            <li>How to implement snap in center</li>
+            <li>How to implement pagination</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Grids in Compose</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to create a grid with a specific number of items per row</li>
+            <li>How to create a grid with a dynamic number of items per row</li>
+            <li>How to dynamically change the number of spans for each item</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">ViewPager in Compose</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to add a ‘selected page’ indicator</li>
+            <li>How to jump to a specific page</li>
+            <li>How to listen to page changed events (OnPageChangeListener)</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">ConstraintLayout in Compose</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to apply marginGone?</li>
+            <li>How to change constraints dynamically?</li>
+            <li>How to use guidelines</li>
+            <li>How to apply bias</li>
+            <li>How to create chains</li>
+            <li>Is MotionLayout available?</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Bottom Sheets in Compose</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to create a Standard Bottom Sheet</li>
+            <li>How to expand and collapse a Standard Bottom Sheet</li>
+            <li>How to listen to Bottom Sheet drag events</li>
+            <li>How to customize the Standard Bottom Sheet?</li>
+            <li>How to create a Bottom Sheet handle indicator</li>
+            <li>How to create a Modal Bottom Sheet</li>
+            <li>How to navigate to a Bottom Sheet using the AndroidX Navigation library</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Using Views from Compose</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to be notified when an Android View becomes visible (onAttach())</li>
+            <li>How to be notified when a Composable leaves the composition (onDetach())</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Calling Android APIs from composable functions</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to start an Activity for Result</li>
+            <li>How to request permission(s)</li>
+            <li>How to check whether a permission is available</li>
+            <li>How to handle back button presses</li>
+            <li>How to create a broadcast receiver composable</li>
+            <li>How to observe lifecycle events (onCreate(), onResume(), onStart(), etc)</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Theming your Compose application</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How Color theming works in Compose</li>
+            <li>How to specify a dark theme in your app</li>
+            <li>How Shape theming works in Compose</li>
+            <li>How Typography theming works in Compose</li>
+            <li>How to style the system bars (status bar and navigation bars)</li>
+            <li>How to extend your theme (create custom theme attributes)</li>
+            <li>How to style composables passed through parameters</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Drawing Edge-to-Edge (Inset handling)</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to draw TopAppBar behind status bar</li>
+            <li>How to ensure compatibility with gesture navigation (excludeRects)</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Managing state</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to ensure calculations are executed only once</li>
+            <li>How to make composables stateful</li>
+            <li>How to make composables stateless</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Navigation in Compose</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to navigate to a destination with argument(s)</li>
+            <li>How to navigate to the previous destination</li>
+            <li>How to define a dialog as a destination target</li>
+            <li>How to define a bottom sheet as a destination target</li>
+            <li>How to send arguments back to a previous destination (start Activity for Result)</li>
+            <li>How to handle deeplinks</li>
+            <li>How to clear the backstack up to a specific point</li>
+            <li>How to customize the navigation animations</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">ViewModels in Compose</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>How to use your existing ViewModels to Compose (LiveData or Kotlin Flows)</li>
+            <li>How to observe one time events</li>
+            <li>How to inject ViewModel into your composable using Hilt</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter expandable">Structuring your Compose application</div>
+            <hr>
+            <div class="chapter_contents">
+            <ul>
+            <li>Navigation structure</li>
+            <li>Screen level composables</li>
+            <li>Content composables</li>
+            </ul>
+            </div>
+            <hr>
+            <div class="chapter">See you on the Internet</div>
+            <hr>
+            <div class="chapter">About the Author</div>
+            <hr>
+            <div class="chapter expandable">Appendix</div>
+        </div>
+        <div class="container" id="buy">
+            <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+            <div class="gumroad-product-embed"><a href="https://alexstyl.gumroad.com/l/viewtocomposable">Loading...</a>
+            </div>
+        </div>
     </div>
-
-    <div style="padding: 40px;"></div>
-
-    <div class="grid" style="display: block;">
-        <blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">I had the chance to meet Alex the other day and we talked about his plans regarding his book. I think his practical mindset on the way to approach to it will make it an instant recommendation for anybody learning Compose. <a href="https://t.co/7xowGe7tHx">https://t.co/7xowGe7tHx</a></p>&mdash; Jorge Castillo (@JorgeCastilloPr) <a href="https://twitter.com/JorgeCastilloPr/status/1521069787585122304?ref_src=twsrc%5Etfw">May 2, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-        <blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">Pre-ordered today, waiting for the book. <a href="https://t.co/yKH7bSH8YX">https://t.co/yKH7bSH8YX</a></p>&mdash; Rizvan (@RizvanHawaldar) <a href="https://twitter.com/RizvanHawaldar/status/1521578263033774080?ref_src=twsrc%5Etfw">May 3, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-        <blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">This looks really dope 👀 I&#39;m sure this ebook will move mountains!</p>&mdash; ⚡ Catalin Ghita (@CatalinGhita4) <a href="https://twitter.com/CatalinGhita4/status/1521779778038251522?ref_src=twsrc%5Etfw">May 4, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-        <blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">Take what you already know about Views, mix it up with the new Jetpack Compose declarative approach, and you are good to go! I love it! 🥰 Great stuff Alex!</p>&mdash; Ivan Morgillo 🐕💻⚔️☮️❄️🧘🏻‍♂️ (@hamen) <a href="https://twitter.com/hamen/status/1522212959467884545?ref_src=twsrc%5Etfw">May 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Just pre-ordered. Go on take yours too 😁 <a href="https://t.co/96DQQyA4Yb">https://t.co/96DQQyA4Yb</a></p>&mdash; Georgios Metaxakis (@MeTaXaS4) <a href="https://twitter.com/MeTaXaS4/status/1521570159206486025?ref_src=twsrc%5Etfw">May 3, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Alex has a great talent in explaining the basics of Compose, and his material on the topic so far has been excellent (follow him for tips &amp; videos!).<br><br>I&#39;m looking forward to seeing this book coming out and helping out folks migrating their apps to Jetpack Compose 🤓 <a href="https://t.co/HF8uHI8SFz">https://t.co/HF8uHI8SFz</a></p>&mdash; 🤌 sebastiano 🤌 (@seebrock3r) <a href="https://twitter.com/seebrock3r/status/1522154722945290240?ref_src=twsrc%5Etfw">May 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-    </div>
-
-<div style="padding: 80px;"></div>
-    <p class="section" style="text-align: center;">
-        Do not learn Jetpack Compose from scratch. <i>From View to Composable</i> includes code examples and to-the-point explanation on how to do everything you already know from Android Views using Jetpack Compose.
-    </p>
-    <div style="padding: 80px;"></div>
-    <ul class="section" style="text-align: start;">
-    <li>✅ Start using Jetpack Compose straight away</li>
-    <li>✅ Includes code examples for every common case</li>
-    <li>✅ No fluff, to-the-point explanations of Jetpack Compose</li>
-    <li>✅ Written <a href="https://twitter.com/alexstyl">by a dev</a> for devs</li>
-</ul>
-<div style="padding: 80px;"></div>
-    <h2 class="section">Save hundreds of hours from</h2>
-    <div style="padding: 20px;"></div>
-    <ul class="section" style="text-align: start;">
-        <li>❌ looking up outdated StackOverflow answers & Googling</li>
-        <li>❌ watching verbose videos on YouTube</li>
-        <li>❌ reading complicated official documentation</li>
-        <li>❌ going through blog posts to find the one article you need</li>
-    </ul>
-</div>   
-<div style="padding: 80px;"></div> 
-<h2 class="section">Table of Contents (<a title="See the current work-in-progress" href="https://github.com/alexstyl/viewtocomposable.github.io/projects/1">🏗</a>)</h2>
-<div style="padding: 20px;"></div> 
-<ol class="section contents">
-    <li>Preface</li>
-    <li>Jump Start to Compose</li>
-    <li>Views</li>
-        <ol class="nested-list">
-            <li>TextView</li>
-            <li>EditText</li>
-            <li>ImageView</li>
-            <li>Button</li>
-            <li>Toolbar</li>
-            <li>Dialog</li>
-            <li>Snackbar</li>
-        </ol>
-    <li>Layouts</li>
-        <ol class="nested-list">
-            <li>LinearLayout</li>
-            <li>FrameLayout</li>
-            <li>RecyclerView</li>
-            <li>Grid</li>
-            <li>ViewPager</li>
-            <li>ConstraintLayout</li>
-            <li>BottomSheet</li>
-        </ol>
-    <li>Interop with Views</li>
-    <li>Theming</li>
-    <li>Insets</li>
-    <li>Keyboard + IME</li>
-    <li>Permissions</li>
-    <li>Start activity for results</li>
-    <li>Compose specifics</li>
-    <ol class="nested-list">
-        <li>State</li>
-        <li>Navigation</li>
-        <li>ViewModels</li>
-        <li>Structuring a Compose app</li>
-    </ol>
-</ol>
-</div>
-
-<div style="padding: 60px;"></div>
-
-
- <script>
-    function loadSample(){
-        const md = new Remarkable();
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", "sample.md"); 
-        xhr.onload = function()  {
-            let text = xhr.responseText;
-            document.getElementById("content").innerHTML = md.render(text)
-            hljs.highlightAll()
-        }
-        xhr.send();
-    }
-    loadSample();
-</script>
-<div style="padding: 60px;"></div>
-
-<div class="section">
-    <h2>Frequently Asked Questions</h2>
-    <div style="padding: 20px"></div>
-    <h3>Is there a location specific discount?</h3>
-    <div style="padding: 10px"></div>
-    <p>Yes. We support Parity Purchasing Power. Depending on your location, you should see a discount code in the top of this page. You can apply the discount code during checkout</p>
-    <div style="padding: 20px"></div>
-    <h3>Will we be able to get new versions of this e-book for upcoming version changes on Compose?</h3>
-    <div style="padding: 10px"></div>
-    <p>Yes. The contents of the book will be updated according to the latest available version of Compose at a given time.</p>
-    <div style="padding: 20px"></div>
-
-    <h3>When is the eBook going to be available?</h3>
-    <div style="padding: 10px"></div>
-    <p>The eBook will be available once it is done. There is no set date for it yet but you can see the overall progress <a title="See the current work-in-progress" href="https://github.com/alexstyl/viewtocomposable.github.io/projects/1">by clicking here</a>.</p>
-    <div style="padding: 20px"></div>
-
-    <h3>I am new to Android Development. Is this eBook for me?</h3>
-    <div style="padding: 10px"></div>
-    <p>This eBook assumes that you already know how to build Android apps using Views. If you are currently learning Android Development from scratch, check out Google's <a href="https://developer.android.com/courses/android-basics-compose/course">Android Basics with Compose</a>.</p>
-    <div style="padding: 20px"></div>
-
-    <h3>My question is not listed here. What should I do?</h3>
-    <div style="padding: 10px"></div>
-    <p>Send me your questions at <a href="mailto:alex@alexstyl.com">alex@alexstyl.com</a> or tweet me <a href="https://twitter.com/alexstyl">(@alexstyl)</a></p>
-</div>
-
-<div style="padding: 80px;"></div>
-
-<div class="section">
-    <h2>Your employer will be super happy to buy this Book for you</h3>
-    <div style="padding: 20px"></div>
-    <p>Ask your manager how to expense training resources or how to use your training budget.</p>
-    <div style="padding: 10px"></div>
-    <p>Here's an e-mail template if you need one. Do not forget to attach your invoice:</p>
-    <div style="padding: 20px"></div>
-    <a href="mailto:{yourmanager@email.com}?body=Dear Sir/Madam,%0D%0D
-I have purchased a copy of 'From View to Composable' for $ 79.99 on {date} in order to speed up my learning on Jetpack Compose, which I would like to be reimbursed using my training budget.%0D%0D
-I have attached the copy of the bill generated for the payment made by me.%0D%0D
-Kindly take a look at the bill and reimburse the amount to my account.%0D%0D
-Thank you,%0D
-{your name}">
-        <img src="template.png" style="
-        cursor:pointer;
-        width: 100%;
-        display: inline-block;">
-    </a>
-</div>
-<div style="padding: 80px"></div>
-<div style="text-align: center;">
-    <button onclick="window.location.href='https://alexstyl.gumroad.com/l/viewtocomposable'">PRE–ORDER – $ 79.99</button>
-    <div style="display: inline;">
-        <s style="font-size: 28px;
-        padding: 20px;
-        font-weight: 600;
-        text-decoration-color: red; text-decoration-thickness: 2px;">$99.99</s>
-    </div>
-    <div style="padding: 20px"></div>
-    <div style="padding: 40px;"></div>
-</div>
-
-<div style="padding: 80px"></div>
-<h3 class = "section">Sneak Peak of the <code>Text</code> Chapter</h2> 
-<div class="section" id="content"></div>
-<div style="padding: 80px"></div>
-
-<div style="text-align: center;">
-    <button onclick="window.location.href='https://alexstyl.gumroad.com/l/viewtocomposable'">PRE–ORDER – $ 79.99</button>
-    <div style="display: inline;">
-        <s style="font-size: 28px;
-        padding: 20px;
-        font-weight: 600;
-        text-decoration-color: red; text-decoration-thickness: 2px;">$99.99</s>
-    </div>
-    <div style="padding: 20px"></div>
-    <div style="padding: 40px;"></div>
-</div>
-<div style="padding: 80px"></div>
 </body>
+
 </html>
