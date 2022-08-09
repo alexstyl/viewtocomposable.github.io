@@ -7,6 +7,12 @@ html {
     scroll-behavior: smooth;
 }
 
+.sale {
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+}
+
 :root {
     --primary: #0975AC;
     --brand: #E91E63;
